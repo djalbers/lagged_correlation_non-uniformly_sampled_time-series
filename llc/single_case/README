@@ -1,0 +1,7 @@
+this directory contains single run and bootstrapped lagged correaltion code
+with example data. examples for how to run the code are shown in the demo
+scripts correlate_demo.m and bootstrap_correlate_demo.m in the respective
+directories.
+
+
+

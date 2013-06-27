@@ -1,0 +1,39 @@
+this directory contains a copy of the infrastructure needed to run the
+llc code on a cluster with a torque queue on many different pairs of
+data files.  the examples are fully operational, including fake data
+and shell scripts for setting up the computation.
+
+begin by noting that we have a data directory and a computation
+directory.  
+
+data_files: the data directory has data files labeled according to
+x.y.lab1 x.y.lab2, etc.  these data files are identical to the single
+run case, but there are many values of x and y. x and y must be
+numbers, and there must be a lab1 and lab2 for every x and
+y. moreover, there must be a key_file that explains what x and y mean
+(e.g., glucose and hemoglobin) in the format as per the example.
+
+matrix_of_correlations: the computation directory has all the scripts
+for moving the data and code such that it can be run by the
+matlab/torque submission scripts. this directory contains the following:
+
+submit_corr.m: matlab script for submitting a set of lagged linear
+correlation and mutual information compuations.
+
+submit_boot_corr.m: matlab script for submitting a set of lagged linear
+correation and mutual information computations --- bootstrapped (thus it
+outputs a confidience interval).
+
+low_level_src: a directory with all the necessary source for carrying out
+the compuation
+
+collect_data.sh: a script for collecting all the data once the computation
+is complete
+
+job_setup.sh: a script that sets up the data and directory structure for
+computation
+
+delete_jobs.sh: a script for deleting jobs on torque
+
+clean.sh: a script that deletes all the job_setup.sh constuction and all the
+computational results
